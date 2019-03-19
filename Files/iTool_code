@@ -1,0 +1,169 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema iTool
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema iTool
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `iTool` DEFAULT CHARACTER SET utf8 ;
+USE `iTool` ;
+
+-- -----------------------------------------------------
+-- Table `iTool`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `iTool`.`user` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(45) NOT NULL,
+  `userSurname` VARCHAR(45) NOT NULL,
+  `userAddress` VARCHAR(128) NOT NULL,
+  `userEmail` VARCHAR(128) NOT NULL,
+  `userLocation` VARCHAR(128) NOT NULL,
+  `paymentMethod` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`userID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `iTool`.`toolCategory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `iTool`.`toolCategory` (
+  `toolCategoryID` INT NOT NULL AUTO_INCREMENT,
+  `toolCategoryName` VARCHAR(128) NOT NULL,
+  `toolCategoryDescription` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`toolCategoryID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `iTool`.`tool`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `iTool`.`tool` (
+  `toolID` INT NOT NULL AUTO_INCREMENT,
+  `toolName` VARCHAR(128) NOT NULL,
+  `toolDescription` VARCHAR(1000) NOT NULL,
+  `toolPrice` DECIMAL(10) NOT NULL,
+  `toolCondition` VARCHAR(45) NOT NULL,
+  `toolCategoryID` INT NOT NULL,
+  `userOwnerID` INT NOT NULL,
+  PRIMARY KEY (`toolID`),
+  INDEX `fk_tool_toolCategory1_idx` (`toolCategoryID` ASC),
+  INDEX `fk_tool_user1_idx` (`userOwnerID` ASC),
+  CONSTRAINT `fk_tool_toolCategory1`
+    FOREIGN KEY (`toolCategoryID`)
+    REFERENCES `iTool`.`toolCategory` (`toolCategoryID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tool_user1`
+    FOREIGN KEY (`userOwnerID`)
+    REFERENCES `iTool`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `iTool`.`transaction`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `iTool`.`transaction` (
+  `transactionID` INT NOT NULL AUTO_INCREMENT,
+  `transactionStartDate` DATETIME NOT NULL,
+  `transactionPlannedEndDate` DATETIME NOT NULL,
+  `userOwnerID` INT NOT NULL,
+  `userLesseeID` INT NOT NULL,
+  `toolID` INT NOT NULL,
+  PRIMARY KEY (`transactionID`),
+  INDEX `fk_transaction_user1_idx` (`userOwnerID` ASC),
+  INDEX `fk_transaction_user2_idx` (`userLesseeID` ASC),
+  INDEX `fk_transaction_tool1_idx` (`toolID` ASC),
+  CONSTRAINT `fk_transaction_user1`
+    FOREIGN KEY (`userOwnerID`)
+    REFERENCES `iTool`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_transaction_user2`
+    FOREIGN KEY (`userLesseeID`)
+    REFERENCES `iTool`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_transaction_tool1`
+    FOREIGN KEY (`toolID`)
+    REFERENCES `iTool`.`tool` (`toolID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `iTool`.`comment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `iTool`.`comment` (
+  `commentID` INT NOT NULL AUTO_INCREMENT,
+  `commentDate` DATETIME NOT NULL,
+  `commentText` VARCHAR(1000) NULL,
+  `transactionID` INT NOT NULL,
+  `userID` INT NOT NULL,
+  `commentParentID` INT NULL,
+  PRIMARY KEY (`commentID`),
+  INDEX `fk_return_tr_transaction1_idx` (`transactionID` ASC),
+  INDEX `fk_return_tr_user1_idx` (`userID` ASC),
+  INDEX `fk_return_tr_return_tr1_idx` (`commentParentID` ASC),
+  CONSTRAINT `fk_return_tr_transaction1`
+    FOREIGN KEY (`transactionID`)
+    REFERENCES `iTool`.`transaction` (`transactionID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_return_tr_user1`
+    FOREIGN KEY (`userID`)
+    REFERENCES `iTool`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_return_tr_return_tr1`
+    FOREIGN KEY (`commentParentID`)
+    REFERENCES `iTool`.`comment` (`commentID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `iTool`.`tr_completion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `iTool`.`tr_completion` (
+  `tr_completionID` INT NOT NULL,
+  `userRating` TINYINT(1) NOT NULL,
+  `ActualEndDate` DATETIME NOT NULL,
+  `returnCondition` VARCHAR(45) NOT NULL,
+  `transactionID` INT NOT NULL,
+  `raterID` INT NOT NULL,
+  `ratedID` INT NOT NULL,
+  PRIMARY KEY (`tr_completionID`),
+  INDEX `fk_tr_completion_transaction1_idx` (`transactionID` ASC),
+  INDEX `fk_tr_completion_user1_idx` (`raterID` ASC),
+  INDEX `fk_tr_completion_user2_idx` (`ratedID` ASC),
+  CONSTRAINT `fk_tr_completion_transaction1`
+    FOREIGN KEY (`transactionID`)
+    REFERENCES `iTool`.`transaction` (`transactionID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tr_completion_user1`
+    FOREIGN KEY (`raterID`)
+    REFERENCES `iTool`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tr_completion_user2`
+    FOREIGN KEY (`ratedID`)
+    REFERENCES `iTool`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
