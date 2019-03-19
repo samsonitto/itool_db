@@ -6,7 +6,7 @@ site_author: Jaber Askari,
             Samson Azizyan,
             Joel Aalto
 
-docs_dir: documents
+docs_dir:
 site_dir: public
 markdown_extensions:
     - toc:
