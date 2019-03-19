@@ -1,0 +1,35 @@
+site_name: iTool Data base
+site_url: https://gitlab.labranet.jamk.fi/M2947/itool
+
+
+site_author: Jaber Askari
+            Samson Azizyan
+            Joel Aalto
+
+docs_dir: dokumentit
+site_dir: public
+markdown_extensions:
+    - toc:
+        anchorlink: True
+        separator: "_"
+    - admonition
+    - tables
+    - sane_lists
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_div_format
+extra_css:
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
+extra_javascript:
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
+
+    
+theme:
+    name: 'material'
+    palette:
+      primary: 'black'
+      accent: 'black'
+    logo:
+      icon: 'assignment'
