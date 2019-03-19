@@ -1,12 +1,12 @@
-site_name: iTool Data base
+site_name: iTool Database 2019
 site_url: https://gitlab.labranet.jamk.fi/M2947/itool
 
 
-site_author: Jaber Askari
-            Samson Azizyan
+site_author: Jaber Askari,
+            Samson Azizyan,
             Joel Aalto
 
-docs_dir: dokumentit
+docs_dir: documents
 site_dir: public
 markdown_extensions:
     - toc:
