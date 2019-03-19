@@ -4,6 +4,9 @@ values ('Samson', 'Azizyan', 'ainola 1 a 1, 40520 Jyväskylä', 'm3156@student.j
 ('Joel', 'Aalto', 'Ykköspesänkatu 1a 10, 40520 Jyväskylä', 'm2113@student.jamk.fi', 'Jyväskylä', 'Paypal'),
 ('Matti', 'Mieskolainen', 'Dynamo kampus', 'matti.mieskolainen@jamk.fi', 'Jyväskylä', 'MasterCard');
 
+insert into toolCategory (toolCategoryName, toolCategoryDescription)
+values ('Ruuvimeisseli', 'Ihan ruuvimeisselit'),('Vasara', 'Ihan vasarat'),('Sähköporakoneet', 'Sähköllä toimivat porakoneet'),('Saha', 'Sahalla voi sahata');
+
 insert into tool (toolName, toolDescription, toolPrice, toolCondition, toolCategoryID, userOwnerID)
 values ('Ristipäinen ruuvimeisseli', 'keskikokoinen', 1.00, 'uudenveroinen', 1, 1),
 ('Talttapäinen ruuvimeisseli', 'pieni', 0.50, 'huono', 1, 1),
