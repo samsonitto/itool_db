@@ -1,0 +1,5 @@
+insert into user (userName, userSurname, userAddress, userEmail, userLocation, paymentMethod)
+values ('Samson', 'Azizyan', 'ainola 1 a 1, 40520 Jyväskylä', 'm3156@student.jamk.fi', 'Jyväskylä', 'Paypal'),
+('Jaber', 'Askari', '42700 Keuruu', 'm2947@gmail.com', 'Keuruu', 'Cash'),
+('Joel', 'Aalto', 'Ykköspesänkatu 1a 10, 40520 Jyväskylä', 'm2113@student.jamk.fi', 'Jyväskylä', 'Paypal'),
+('Matti', 'Mieskolainen', 'Dynamo kampus', 'matti.mieskolainen@jamk.fi', 'Jyväskylä', 'MasterCard');
