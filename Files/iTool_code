@@ -1,17 +1,8 @@
--- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
--- Schema M3156_3
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema M3156_3
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `M3156_3` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `M3156_3` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `M3156_3` ;
 
 -- -----------------------------------------------------
@@ -25,6 +16,9 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`user` (
   `userEmail` VARCHAR(128) NOT NULL,
   `userLocation` VARCHAR(128) NOT NULL,
   `paymentMethod` VARCHAR(128) NOT NULL,
+  `userMobile` BIGINT NOT NULL,
+  `userPassword` VARCHAR(45) NOT NULL,
+  `userPicture` VARCHAR(45) NULL,
   PRIMARY KEY (`userID`))
 ENGINE = InnoDB;
 
@@ -51,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`tool` (
   `toolCondition` VARCHAR(45) NOT NULL,
   `toolCategoryID` INT NOT NULL,
   `userOwnerID` INT NOT NULL,
+  `toolPicture` VARCHAR(45) NULL,
   PRIMARY KEY (`toolID`),
   INDEX `fk_tool_toolCategory1_idx` (`toolCategoryID` ASC),
   INDEX `fk_tool_user1_idx` (`userOwnerID` ASC),
