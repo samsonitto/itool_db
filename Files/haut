@@ -24,3 +24,12 @@ mysql> select userName, userPicture, toolID from user inner join transaction on 
 | kk       | amanda.jpg  |      1 |
 +----------+-------------+--------+
 2 rows in set (0.00 sec)
+
+mysql> select concat(userName,' ',userSurname) as 'Full name', userPicture, toolID from user inner join transaction on UserID = userOwnerID where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
++-----------+-------------+--------+
+| Full name | userPicture | toolID |
++-----------+-------------+--------+
+| kk kk     | amanda.jpg  |      2 |
+| kk kk     | amanda.jpg  |      1 |
++-----------+-------------+--------+
+2 rows in set (0.00 sec)
