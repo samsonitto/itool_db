@@ -12,3 +12,6 @@ values ('Ristipäinen ruuvimeisseli', 'keskikokoinen', 1.00, 'uudenveroinen', 1,
 ('Talttapäinen ruuvimeisseli', 'pieni', 0.50, 'huono', 1, 1),
 ('Hitachi porakone', '2h akku', 3.00, 'hyvä', 3, 2),
 ('Metallisaha', 'ohut', 1.50, 'uudenveroinen', 4, 3);
+
+insert into transaction (transactionStartDate, transactionPlannedEndDate, userOwnerID, userLesseeID, toolID)
+values ('2019-03-26 15:50:00', '2019-03-26 15:50:10', 2, 1, 2);
