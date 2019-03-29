@@ -23,3 +23,8 @@ insert into tr_completion (tr_completionID,userRating, ActualEndDate, returnCond
 values (0, 3, '2019-03-29 15:50:10', 'good', 1, 1,2);
 insert into tr_completion (tr_completionID,userRating, ActualEndDate, returnCondition, transactionID, raterID, ratedID) 
 values (1, 3, '2019-03-29 15:50:10', 'good', 1, 2,1);
+
+
+create view ToolsList as SELECT tool.toolID, user.userID  ,tool.toolName, tool.toolDescription, tool.toolPrice, tool.toolCondition, toolCategory.toolCategoryName, user.userLocation, tr_completion.userRating, tool.toolPicture FROM tool inner join toolCategory on 
+tool.toolCategoryID = toolCategory.toolCategoryID  inner join user on tool.userOwnerID= user.userID left join transaction on tool.toolID= transaction.toolID 
+left join tr_completion on tr_completion.transactionID= transaction.transactionID group by tool.toolID ;
