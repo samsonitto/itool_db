@@ -1,0 +1,5 @@
+
+
+create view ToolsList as SELECT tool.toolID, user.userID  ,tool.toolName, tool.toolDescription, tool.toolPrice, tool.toolCondition, toolCategory.toolCategoryName, user.userLocation, tr_completion.userRating, tool.toolPicture FROM tool inner join toolCategory on 
+tool.toolCategoryID = toolCategory.toolCategoryID  inner join user on tool.userOwnerID= user.userID left join transaction on tool.toolID= transaction.toolID 
+left join tr_completion on tr_completion.transactionID= transaction.transactionID group by tool.toolID ;
