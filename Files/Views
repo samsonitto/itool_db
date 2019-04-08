@@ -12,3 +12,14 @@ CREATING A VIEW, THAT INCLUDES ALL TOOL ATTRIBUTES + TOOL CATEGORY ID + TOOL CAT
 SELECT tool.toolID, user.userID  ,tool.toolName, tool.toolDescription, tool.toolPrice, tool.toolCondition, toolCategory.toolCategoryName, user.userLocation, tr_completion.userRating, tool.toolPicture FROM tool inner join toolCategory on 
 tool.toolCategoryID = toolCategory.toolCategoryID  inner join user on tool.userOwnerID= user.userID left join transaction on tool.toolID= transaction.toolID 
 left join tr_completion on tr_completion.transactionID= transaction.transactionID where tr_completion.ActualEndDate < now() or  transaction.toolID is null group by tool.toolID;
+
+
+DELIMITER $$
+create trigger RatingCheck before insert on tr_completion for each row
+begin 
+if (5< new.userRating < 0 )
+then
+ CALL `'Wrong input! Rating should be between 1 to 5!'`;
+ end if;
+ end;
+ $$
