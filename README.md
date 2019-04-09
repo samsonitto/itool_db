@@ -2,10 +2,10 @@
 
 # Sisällysluettelo
 
-* [Vaatimusmäärittely](#arkkitehtuurikuvaus)
-    * [Johdanto](#sekvenssikaavio-kirjautuminen)
-    * [Yleiskuvaus](#tilakonekaavio)
-    * [Toiminnot](#käsitemalli)
+* [Vaatimusmäärittely](#vaatimusmäärittely)
+    * [Johdanto](#johdanto)
+    * [Yleiskuvaus](#yleiskuvaus)
+    * [Toiminnot](#toiminnot)
     * [Ulkoiset liittymät](#luokkakaavio)
     * [Muut ominaisuudet](#sijoittelunäkymä)
 
@@ -25,38 +25,23 @@ Tavoitteena on pystyä vuokraamaan muden sovelluksen käyttäjien vuokralle jät
 
 ## Yleiskuvaus
 
-```csharp
-foreach (Comment reply in comments)
-                {
-                    if (reply.CommentParentID == item.CommentID)
-                    {
-                        User us = DB.GetToolOwnerFromMysql(reply.userID);
+Jokainen iTool palveluun luonut tunnukset pystyy kirjautumaan palveluun. Käyttäjä pystyy selaamaan kaikki työkalut tai suodattamaan sijainnin tai työkalutyypin mukaan.
+Käyttäjä myös pystyy hakemaan "haku"-palkilla työkaluja nimien mukaan. Käyttäjä voi vuokrata työkaluja hinnan mukaan (€/24h). Käyttäjät pystyy kommentoimaan työkaluja ja vastamaan kommenteihin.
+Käyttäjät voi jättä arvion toisistaan liittyen transaktioneihin.
 
-                        Label lbComment = new Label();
-                        lbComment.Content = $"Comment #{reply.CommentID}";
-                        lbComment.FontSize = 12;
-                        lbComment.FontWeight = FontWeights.Bold;
-                        Label lb = new Label();
-                        lb.Content = $"{us.FirstName} {us.LastName}, User ID: #{us.UserID}   {item.DateTime.ToString()}   In reply to comment #{item.CommentID}";
-                        lb.FontSize = 12;
-                        lb.FontWeight = FontWeights.Bold;
+## Toiminnot
 
-                        TextBlock reply1 = new TextBlock();
-                        reply1.Text = reply.Text;
-                        reply1.VerticalAlignment = VerticalAlignment.Top;
-                        reply1.HorizontalAlignment = HorizontalAlignment.Left;
-                        reply1.FontSize = 12;
-                        reply1.TextWrapping = TextWrapping.Wrap;
+### Pakollisia toimintoja ovat:
+1. Käyttäjätietojen (ID, nimi, email, salasana) hallinta
+2. Työkalutietojen (ID, nimi, hinta) hallinta
+3. Vuokralla olevien työkalujen hallinta
+4. Saatavilla olevien työkalujen hallinta
+5. Omien työkalujen hallinta
 
-                        StackPanel spReply = new StackPanel();
-                        spReply.Margin = new Thickness(margin += 20, 10, 0, 0);
-                        spReply.Orientation = Orientation.Vertical;
-                        spReply.HorizontalAlignment = HorizontalAlignment.Left;
-                        spReply.Children.Add(lbComment);
-                        spReply.Children.Add(lb);
-                        spReply.Children.Add(reply1);
+## Ulkoiset liittymät
 
-                        lbxComments.Items.Add(spReply);
-                    }
-                }
-```
+Käyttöliittymänä käytetään Samsonin tekemän harjoitustyötä käyttöliittymäohjelmoinnin kurssilla. Käyttöliittymä koostuu 5-6 WPF ikkunasta ja toiminnallisuus on ohjelmoitu c#:lla.
+
+
+## Muut ominaisuudet
+
