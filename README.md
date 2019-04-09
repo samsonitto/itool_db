@@ -6,8 +6,8 @@
     * [Johdanto](#johdanto)
     * [Yleiskuvaus](#yleiskuvaus)
     * [Toiminnot](#toiminnot)
-    * [Ulkoiset liittymät](#luokkakaavio)
-    * [Muut ominaisuudet](#sijoittelunäkymä)
+    * [Ulkoiset liittymät](#ulkoiset-liittymät)
+    * [Muut ominaisuudet](#muut-ominaisuudet)
 
 # Vaatimusmäärittely
 
