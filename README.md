@@ -25,8 +25,38 @@ Tavoitteena on pystyä vuokraamaan muden sovelluksen käyttäjien vuokralle jät
 
 ## Yleiskuvaus
 
-```sql
-insert into comment (commentDate, commentText, userID, commentParentID, toolID)
-values (CURRENT_TIMESTAMP, 'Tämä on työllisyyskysymyksiin keskittyvä vaalikone. Selvitämme ehdokkaiden ja äänestäjien näkemyksiä muun muassa yhteiskuntaan, toimeentuloon, työttömyyteen, työn tulevaisuuteen ja yrittäjyyteen liittyvistä aiheista. Osallistu keskusteluun: #duunivaalit', 2,3,16),
-(CURRENT_TIMESTAMP, 'Lähetä opettajalle Slack- tai sähköposti-teaseri, kun työ on valmis ja repository on valmis tarkistettavaksi. Reposta on löydettävä kaikki harjoitustyöhön liittyvä eli  lähdekoodit, tarvittavat konfigurointi, data-tiedostot, Readme ja muut tarvittavat tiedostot. Jos olet käyttänyt jotain erillistä tietokantapalvelinta, liitä mukaan tietokannan luontiskriptit, ohjeet käyttäjätunnusten ja oikeuksien antamisesta ja skripti jolla luodaan testauksessa tarvittava data.', 1,3,16);
+```C#
+foreach (Comment reply in comments)
+                {
+                    if (reply.CommentParentID == item.CommentID)
+                    {
+                        User us = DB.GetToolOwnerFromMysql(reply.userID);
+
+                        Label lbComment = new Label();
+                        lbComment.Content = $"Comment #{reply.CommentID}";
+                        lbComment.FontSize = 12;
+                        lbComment.FontWeight = FontWeights.Bold;
+                        Label lb = new Label();
+                        lb.Content = $"{us.FirstName} {us.LastName}, User ID: #{us.UserID}   {item.DateTime.ToString()}   In reply to comment #{item.CommentID}";
+                        lb.FontSize = 12;
+                        lb.FontWeight = FontWeights.Bold;
+
+                        TextBlock reply1 = new TextBlock();
+                        reply1.Text = reply.Text;
+                        reply1.VerticalAlignment = VerticalAlignment.Top;
+                        reply1.HorizontalAlignment = HorizontalAlignment.Left;
+                        reply1.FontSize = 12;
+                        reply1.TextWrapping = TextWrapping.Wrap;
+
+                        StackPanel spReply = new StackPanel();
+                        spReply.Margin = new Thickness(margin += 20, 10, 0, 0);
+                        spReply.Orientation = Orientation.Vertical;
+                        spReply.HorizontalAlignment = HorizontalAlignment.Left;
+                        spReply.Children.Add(lbComment);
+                        spReply.Children.Add(lb);
+                        spReply.Children.Add(reply1);
+
+                        lbxComments.Items.Add(spReply);
+                    }
+                }
 ```
