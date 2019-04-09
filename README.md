@@ -25,7 +25,7 @@ Tavoitteena on pystyä vuokraamaan muden sovelluksen käyttäjien vuokralle jät
 
 ## Yleiskuvaus
 
-```C#
+```csharp
 foreach (Comment reply in comments)
                 {
                     if (reply.CommentParentID == item.CommentID)
