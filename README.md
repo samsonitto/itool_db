@@ -1,5 +1,14 @@
 # TTZC0800 (Tietokannat) kurssin Harjoitustyö
 
+## Työkalujenlainauspalvelu (Über for tools)
+
+* "iTool"-tietokanta
+* Työryhmä: 
+    1. Samson Azizyan (M3156)
+    2. Joel Aalto ()
+    3. Jaber Askari ()
+* Versio 0.1 9.4.2019
+
 # Sisällysluettelo
 
 * [Vaatimusmäärittely](#vaatimusmäärittely)
@@ -10,12 +19,6 @@
     * [Muut ominaisuudet](#muut-ominaisuudet)
 
 # Vaatimusmäärittely
-
-### Työkalujenlainauspalvelu (Über for tools)
-
-* "iTool"-tietokanta
-* Työryhmä: Samson Azizyan (M3156), Joel Aalto (), Jaber Askari ()
-* Versio 0.1 9.4.2019
 
 ## Johdanto
 
