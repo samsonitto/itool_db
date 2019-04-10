@@ -77,12 +77,12 @@ Sovellus on PC:lle.
 User --{ Tool
 User --{ Transaction
 User --{ Transaction
-User --{ Tr_completion
-User --{ Tr_completion
+User --{ TRcompletion
+User --{ TRcompletion
 User --{ Comment
 ToolCategory --{ Tool
 Tool --{ Transaction
-Transaction -- { Tr_completion
+Transaction -- { TRcompletion
 Transaciton --{ Comment
 Comment --{ Comment
 @enduml
