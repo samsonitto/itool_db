@@ -67,7 +67,8 @@ Sovellus on PC:lle.
 
 ## Muut ominaisuudet
 
-
+* Salasanojen salaus MD5 encryptiolla.
+* 
 
 
 # Käsitemalli
@@ -144,6 +145,6 @@ Comment --{ Comment
 
 * [Scheman luonti](Files/iTool_code.md)
 * [SQL queries](Files/loitsut.md)
-* 
+
 
 
