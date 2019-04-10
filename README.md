@@ -48,10 +48,10 @@ Käyttäjät voi jättä arvion toisistaan liittyen transaktioneihin.
 
 | Toiminto | Kuvaus | Tärkeys |
 |:-:|:-:|:-:|
-| Käyttäjätietojen hallinta | nimi, email, salasana | Pakollinen |
+| Käyttäjätietojen hallinta | nimi, email, salasana, sijainti | Pakollinen |
 | Työkalutietojen hallinta | nimi, hinta, saatavuus | Pakollinen |
 | Vuokrausten hallinta | Vuokralla olevien, sekä vapaiden työkalujen | Pakollinen|
-| Kommunikointi | Kommentointi / viestintä | NiceToHave |
+| Kommunikointi | Kommentointi / viestintä, rating | NiceToHave |
 
 <!--1. Käyttäjätietojen (ID, nimi, email, salasana) hallinta
 2. Työkalutietojen (ID, nimi, hinta) hallinta
@@ -115,7 +115,7 @@ Comment --{ Comment
 
 # Relaatiokaavio
 
-![](Image/iTool_v2.JPG)
+![](Image/iTool_v2_captions.JPG)
 
 # Käyttöliittymä
 
