@@ -252,3 +252,9 @@ VALUES (CURRENT_TIMESTAMP, (SELECT date_add(CURRENT_TIMESTAMP, INTERVAL 5 DAY)),
 (CURRENT_TIMESTAMP, (SELECT date_add(CURRENT_TIMESTAMP, INTERVAL 7 DAY)), 2, 1, 7),
 (CURRENT_TIMESTAMP, (SELECT date_add(CURRENT_TIMESTAMP, INTERVAL 10 DAY)), 3, 4, 8);
 ```
+
+### Lisätään puuttuva "rating int(1)" kolumni rating tauluun
+
+```sql
+ALTER TABLE rating ADD rating INT(1) NOT NULL;
+```
