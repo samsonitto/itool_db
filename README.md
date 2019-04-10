@@ -116,7 +116,7 @@ Comment --{ Comment
 
 # Relaatiokaavio
 
-![](Image/iTool_v2.JPG)
+![](Image/iTool_v3_rating.JPG)
 
 * Käyttäjillä voi olla monta työkalua
 * Työkalukategoriassa voi olla monta työkalua
@@ -132,7 +132,7 @@ Comment --{ Comment
 * Ratingiin asetetaan triggeri, jotta arvostelu voi olla vain asteikolla 1-5. (linkki)
 * Ratingiin asetetaan triggeri, joka tarkistaa onko käyttäjä antanut jo arvostelun tietystä transaktionista
 
-[Kaavio kommentoituna](Image/iTool_v2_captions.JPG)
+[Kaavio kommentoituna](Image/iTool_v3_rating.JPG)
 
 
 # Käyttöliittymä
