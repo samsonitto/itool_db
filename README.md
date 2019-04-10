@@ -84,7 +84,6 @@ ToolCategory --{ Tool
 Tool --{ Transaction
 Transaction -- { TRcompletion
 Transaciton --{ Comment
-Comment --{ Comment
 @enduml
 ```
 
