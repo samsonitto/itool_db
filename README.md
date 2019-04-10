@@ -115,6 +115,7 @@ Comment --{ Comment
 
 # Relaatiokaavio
 
+![](Image/iTool_v2.JPG)
 
 # Käyttöliittymä
 
