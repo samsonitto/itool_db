@@ -1,8 +1,18 @@
+```sql
+-- MySQL Workbench Forward Engineering
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `M3156_3` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+-- -----------------------------------------------------
+-- Schema M3156_3
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema M3156_3
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `M3156_3` DEFAULT CHARACTER SET utf8 ;
 USE `M3156_3` ;
 
 -- -----------------------------------------------------
@@ -16,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`user` (
   `userEmail` VARCHAR(128) NOT NULL,
   `userLocation` VARCHAR(128) NOT NULL,
   `paymentMethod` VARCHAR(128) NOT NULL,
-  `userMobile` BIGINT NOT NULL,
+  `userMobile` VARCHAR(45) NOT NULL,
   `userPassword` VARCHAR(45) NOT NULL,
-  `userPicture` VARCHAR(45) NULL,
+  `userPicture` VARCHAR(128) NULL,
   PRIMARY KEY (`userID`))
 ENGINE = InnoDB;
 
@@ -45,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`tool` (
   `toolCondition` VARCHAR(45) NOT NULL,
   `toolCategoryID` INT NOT NULL,
   `userOwnerID` INT NOT NULL,
-  `toolPicture` VARCHAR(45) NULL,
+  `toolPicture` VARCHAR(128) NULL,
   PRIMARY KEY (`toolID`),
   INDEX `fk_tool_toolCategory1_idx` (`toolCategoryID` ASC),
   INDEX `fk_tool_user1_idx` (`userOwnerID` ASC),
@@ -72,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`transaction` (
   `userOwnerID` INT NOT NULL,
   `userLesseeID` INT NOT NULL,
   `toolID` INT NOT NULL,
+  `actualEndDate` DATETIME NULL,
   PRIMARY KEY (`transactionID`),
   INDEX `fk_transaction_user1_idx` (`userOwnerID` ASC),
   INDEX `fk_transaction_user2_idx` (`userLesseeID` ASC),
@@ -101,18 +112,13 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`comment` (
   `commentID` INT NOT NULL AUTO_INCREMENT,
   `commentDate` DATETIME NOT NULL,
   `commentText` VARCHAR(1000) NULL,
-  `transactionID` INT NOT NULL,
   `userID` INT NOT NULL,
   `commentParentID` INT NULL,
+  `toolID` INT NOT NULL,
   PRIMARY KEY (`commentID`),
-  INDEX `fk_return_tr_transaction1_idx` (`transactionID` ASC),
   INDEX `fk_return_tr_user1_idx` (`userID` ASC),
   INDEX `fk_return_tr_return_tr1_idx` (`commentParentID` ASC),
-  CONSTRAINT `fk_return_tr_transaction1`
-    FOREIGN KEY (`transactionID`)
-    REFERENCES `M3156_3`.`transaction` (`transactionID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_comment_tool1_idx` (`toolID` ASC),
   CONSTRAINT `fk_return_tr_user1`
     FOREIGN KEY (`userID`)
     REFERENCES `M3156_3`.`user` (`userID`)
@@ -122,38 +128,41 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`comment` (
     FOREIGN KEY (`commentParentID`)
     REFERENCES `M3156_3`.`comment` (`commentID`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_comment_tool1`
+    FOREIGN KEY (`toolID`)
+    REFERENCES `M3156_3`.`tool` (`toolID`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`tr_completion`
+-- Table `M3156_3`.`rating`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`tr_completion` (
-  `tr_completionID` INT NOT NULL,
-  `userRating` TINYINT(1) NOT NULL,
-  `ActualEndDate` DATETIME NOT NULL,
-  `returnCondition` VARCHAR(45) NOT NULL,
-  `transactionID` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `M3156_3`.`rating` (
+  `ratingID` INT NOT NULL AUTO_INCREMENT,
+  `ratingFeedback` VARCHAR(1000) NULL,
   `raterID` INT NOT NULL,
   `ratedID` INT NOT NULL,
-  PRIMARY KEY (`tr_completionID`),
-  INDEX `fk_tr_completion_transaction1_idx` (`transactionID` ASC),
-  INDEX `fk_tr_completion_user1_idx` (`raterID` ASC),
-  INDEX `fk_tr_completion_user2_idx` (`ratedID` ASC),
-  CONSTRAINT `fk_tr_completion_transaction1`
-    FOREIGN KEY (`transactionID`)
-    REFERENCES `M3156_3`.`transaction` (`transactionID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tr_completion_user1`
+  `transactionID` INT NOT NULL,
+  PRIMARY KEY (`ratingID`),
+  INDEX `fk_rating_user1_idx` (`raterID` ASC),
+  INDEX `fk_rating_user2_idx` (`ratedID` ASC),
+  INDEX `fk_rating_transaction1_idx` (`transactionID` ASC),
+  CONSTRAINT `fk_rating_user1`
     FOREIGN KEY (`raterID`)
     REFERENCES `M3156_3`.`user` (`userID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tr_completion_user2`
+  CONSTRAINT `fk_rating_user2`
     FOREIGN KEY (`ratedID`)
     REFERENCES `M3156_3`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_rating_transaction1`
+    FOREIGN KEY (`transactionID`)
+    REFERENCES `M3156_3`.`transaction` (`transactionID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -162,3 +171,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+```
