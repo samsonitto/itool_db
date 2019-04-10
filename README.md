@@ -176,6 +176,7 @@ transaction ja tr_completion taulut, mutta teimme ratingille oman taulun.
 
 * [Scheman luonti](Files/iTool_code.md)
 * [SQL queries](Files/loitsut.md)
+* [Triggeri](Files/Trigger.md)
 
 
 
