@@ -115,7 +115,21 @@ Comment --{ Comment
 
 # Relaatiokaavio
 
-![](Image/iTool_v2_captions.JPG)
+![](Image/iTool_v2.JPG)
+
+* Käyttäjillä voi olla monta työkalua
+* Työkalukategoriassa voi olla monta työkalua
+* Yksi työkalu voi olla monessa transaktionissa mukana, eri ajanjaksoilla
+* Työkaluja vuokranneella voi olla monia transaktioneita
+* Käyttäjä voi vastaanottaa arvioita monelta käyttäjältä (Kerran/transaktio)
+* Työkalun omistajalla voi olla monta transaktiota
+* Yhtä työkalua voi kommentoida monta kertaa
+* Käyttäjä voi jättää monta kommenttia
+* Käyttäjä voi antaa monta arviota monelle käyttäjälle (Kerran/transaktio)
+* Kommentoija voi jättää vastauksen kommenteihin
+
+[Kaavio kommentoituna](Image/iTool_v2_captions.JPG)
+
 
 # Käyttöliittymä
 
