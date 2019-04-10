@@ -10,8 +10,6 @@ select toolID from transaction where userOwnerID = 2 AND transactionPlannedEndDa
 +--------+
 ```
 
-2 rows in set (0.01 sec)
-
 ```sql
 select userName, toolID from user inner join transaction on UserID = userOwnerID where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
 +----------+--------+
@@ -21,8 +19,6 @@ select userName, toolID from user inner join transaction on UserID = userOwnerID
 | kk       |      1 |
 +----------+--------+
 ```
-
-2 rows in set (0.00 sec)
 
 ```sql
 select userName, userPicture, toolID from user inner join transaction on UserID = userOwnerID where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
@@ -34,18 +30,15 @@ select userName, userPicture, toolID from user inner join transaction on UserID 
 +----------+-------------+--------+
 ```
 
-2 rows in set (0.00 sec)
-
 ```sql
 select concat(userName,' ',userSurname) as 'Full name', userPicture, toolID from user inner join transaction on UserID = userOwnerID where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
-```
 +-----------+-------------+--------+
 | Full name | userPicture | toolID |
 +-----------+-------------+--------+
 | kk kk     | amanda.jpg  |      2 |
 | kk kk     | amanda.jpg  |      1 |
 +-----------+-------------+--------+
-2 rows in set (0.00 sec)
+```
 
 ### Haetaan kaikki työkalut olkoon lainassa tai ei
 
@@ -104,8 +97,6 @@ SELECT * FROM all_tools where userOwnerID != 1 and (transactionPlannedEndDate < 
 
 ```sql
 SELECT * FROM all_tools WHERE userOwnerID != 1 AND (transactionPlannedEndDate < CURRENT_TIMESTAMP || transactionPlannedEndDate IS NULL) AND (ActualEndDate < CURRENT_TIMESTAMP || ActualEndDate IS NULL);
-```
-
 +--------+-------------+----------------+-------------+------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 | toolID | userOwnerID | toolCategoryID | toolPicture | toolName         | toolDescription                               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate |
 +--------+-------------+----------------+-------------+------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
@@ -115,22 +106,24 @@ SELECT * FROM all_tools WHERE userOwnerID != 1 AND (transactionPlannedEndDate < 
 |      7 |          12 |              6 | NULL        | Iso jakoavain    | Isonkokoinen jakoavain, voi käyttää aseena |      0.70 | uudenveroinen | Jakoavaimet      | Jgvjqs       | NULL                      | NULL          |
 +--------+-------------+----------------+-------------+------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 
+```
+
 ### Luodaan näkymä joka näyttää lainassa olevat työkalut:
 
 ```sql
 CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE transactionPlannedEndDate > CURRENT_TIMESTAMP;
-```
 +--------+-------------+----------------+-------------+------------------+-----------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 | toolID | userOwnerID | toolCategoryID | toolPicture | toolName         | toolDescription | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate |
 +--------+-------------+----------------+-------------+------------------+-----------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 |      3 |           2 |              3 | NULL        | Hitachi porakone | 2h akku         |      3.00 | hyv▒          | S▒hk▒porakoneet  | Jyv▒skyl▒    | 2019-04-12 10:50:26       | NULL          |
 +--------+-------------+----------------+-------------+------------------+-----------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 
+```
+
 ### Näytetään kaikki saatavilla olevat työkalut, jos Active.UserID = 1
 
 ```sql
 SELECT * FROM all_tools WHERE userOwnerID != 1 AND toolID NOT IN (SELECT toolID FROM rented_tools);
-```
 +--------+-------------+----------------+-------------+---------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 | toolID | userOwnerID | toolCategoryID | toolPicture | toolName      | toolDescription                               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate |
 +--------+-------------+----------------+-------------+---------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
@@ -138,6 +131,8 @@ SELECT * FROM all_tools WHERE userOwnerID != 1 AND toolID NOT IN (SELECT toolID 
 |      6 |          12 |              5 | NULL        | Vasara        | Ihan perus vasara                             |      0.50 | uudenveroinen | Vasarat          | Jgvjqs       | NULL                      | NULL          |
 |      7 |          12 |              6 | NULL        | Iso jakoavain | Isonkokoinen jakoavain, voi käyttää aseena |      0.70 | uudenveroinen | Jakoavaimet      | Jgvjqs       | NULL                      | NULL          |
 +--------+-------------+----------------+-------------+---------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+
+```
 
 ### Lisätään työkaluja kuvien kanssa
 
@@ -154,7 +149,6 @@ VALUES ('Vasara','Iso vasara',1,'Hyvä',11,11, 'hammer.png'),
 
 ```sql
 CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userLesseeID, tool.toolCategoryID, toolPicture, toolName, toolDescription, toolPrice, toolCondition, toolCategoryName, userLocation, transactionPlannedEndDate, ActualEndDate FROM tool INNER JOIN toolCategory ON tool.toolCategoryID = toolCategory.toolCategoryID LEFT JOIN transaction ON tool.toolID = transaction.toolID LEFT JOIN tr_completion ON transaction.transactionID = tr_completion.transactionID INNER JOIN user ON tool.userOwnerID = userID;
-```
 +--------+-------------+--------------+----------------+------------------+----------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------------+
 | toolID | userOwnerID | userLesseeID | toolCategoryID | toolPicture      | toolName                   | toolDescription                               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate       |
 +--------+-------------+--------------+----------------+------------------+----------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------------+
@@ -173,11 +167,12 @@ CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userL
 |     17 |           9 |         NULL |             20 | drill.png        | Porakone                   | Perus porakone                                |      2.50 | Uudenveroinen | Sähkötyökalut | Oulu         | NULL                      | NULL                |
 +--------+-------------+--------------+----------------+------------------+----------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------------+
 
+```
+
 ### Poistetaan näkymä rented_tools ja luodaan uudestaan rented_tools, joka sisältää userLesseeID:
 
 ```sql
 CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE transactionPlannedEndDate > CURRENT_TIMESTAMP;
-```
 +--------+-------------+--------------+----------------+-------------+------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 | toolID | userOwnerID | userLesseeID | toolCategoryID | toolPicture | toolName         | toolDescription                               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate |
 +--------+-------------+--------------+----------------+-------------+------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
@@ -186,11 +181,12 @@ CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE transactionPlannedEndD
 |      7 |          12 |            1 |              6 | NULL        | Iso jakoavain    | Isonkokoinen jakoavain, voi käyttää aseena |      0.70 | uudenveroinen | Jakoavaimet      | Jgvjqs       | 2019-04-14 14:08:27       | NULL          |
 +--------+-------------+--------------+----------------+-------------+------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 
+```
+
 ### Poistetaan näkymä rented_tools ja luodaan uudestaan rented_tools, joka sisältää myös ei palautettuja ajallaan työkaluja:
 
 ```sql
 CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE (transactionPlannedEndDate IS NOT NULL AND ActualEndDate IS NULL);
-```
 +--------+-------------+--------------+----------------+-------------+---------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 | toolID | userOwnerID | userLesseeID | toolCategoryID | toolPicture | toolName                  | toolDescription                               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate |
 +--------+-------------+--------------+----------------+-------------+---------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
@@ -202,11 +198,12 @@ CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE (transactionPlannedEnd
 |     15 |          12 |            1 |             11 | wrench.png  | Jakoavain                 | Pieni jakoavain                               |      0.01 | Kelvoton      | Käsityökalut   | Jgvjqs       | 2019-04-09 15:08:49       | NULL          |
 +--------+-------------+--------------+----------------+-------------+---------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 
+```
+
 ### Poistetaan näkymä all_tools ja luodaan uusi näkymä all_tools, joka sisältää kaikkien vanhojen kenttien lisäksi transactionID:
 
 ```sql
 CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userLesseeID, transaction.transactionID, tool.toolCategoryID, toolPicture, toolName, toolDescription, toolPrice, toolCondition, toolCategoryName, userLocation, transactionPlannedEndDate, ActualEndDate FROM tool INNER JOIN toolCategory ON tool.toolCategoryID = toolCategory.toolCategoryID LEFT JOIN transaction ON tool.toolID = transaction.toolID LEFT JOIN tr_completion ON transaction.transactionID = tr_completion.transactionID INNER JOIN user ON tool.userOwnerID = userID;
-```
 +--------+-------------+--------------+---------------+----------------+------------------+----------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------------+
 | toolID | userOwnerID | userLesseeID | transactionID | toolCategoryID | toolPicture      | toolName                   | toolDescription                               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | ActualEndDate       |
 +--------+-------------+--------------+---------------+----------------+------------------+----------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------------+
@@ -225,6 +222,8 @@ CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userL
 |     17 |           9 |         NULL |          NULL |             20 | drill.png        | Porakone                   | Perus porakone                                |      2.50 | Uudenveroinen | Sähkötyökalut | Oulu         | NULL                      | NULL                |
 +--------+-------------+--------------+---------------+----------------+------------------+----------------------------+-----------------------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------------+
 
-Päivitetään rented_tools näkymä, luomalla se uudestaan. Näkymässä näkyy nyt transactionID vanhojen ominaisuuksien lisäksi.
+```
+
+## Päivitetään rented_tools näkymä, luomalla se uudestaan. Näkymässä näkyy nyt transactionID vanhojen ominaisuuksien lisäksi.
 
 
