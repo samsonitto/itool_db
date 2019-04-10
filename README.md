@@ -44,7 +44,6 @@ Käyttäjät voi jättä arvion toisistaan liittyen transaktioneihin.
 
 ## Toiminnot
 
-### Pakollisia toimintoja ovat:
 
 | Toiminto | Kuvaus | Tärkeys |
 |:-:|:-:|:-:|
@@ -131,7 +130,7 @@ Comment --{ Comment
 * Käyttäjä voi antaa monta arviota monelle käyttäjälle (Kerran/transaktio)
 * Kommentoija voi jättää vastauksen kommenteihin
 
-- Ratingiin asetetaan triggeri, jotta arvostelu voi olla vain asteikolla 1-5. (linkki)
+- Ratingiin asetetaan [triggeri](Files/Trigger.md), jotta arvostelu voi olla vain asteikolla 1-5. [](Files/Trigger.md)
 - Ratingiin asetetaan triggeri, joka tarkistaa onko käyttäjä antanut jo arvostelun tietystä transaktionista
 
 [Kaavio kommentoituna](Image/iTool_v3_rating.JPG)
