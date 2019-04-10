@@ -79,11 +79,7 @@ User --{ Transaction
 User --{ Transaction
 User --{ TRcompletion
 User --{ TRcompletion
-User --{ Comment
-ToolCategory --{ Tool
-Tool --{ Transaction
-Transaction -- { TRcompletion
-Transaciton --{ Comment
+
 @enduml
 ```
 
