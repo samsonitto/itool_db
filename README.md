@@ -87,7 +87,7 @@ User --{ Comment
 ToolCategory --{ Tool
 Tool --{ Transaction
 Transaction --{ TRcompletion
-Transaciton --{ Comment
+Transaction --{ Comment
 Comment --{ Comment
 
 @enduml
