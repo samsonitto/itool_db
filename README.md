@@ -22,17 +22,19 @@
 
 ## Johdanto
 
-Tietokanta tehdään työkalulainaussovellusta varten. Yrittäjyys-tunnilla piti väkisin keksiä ideoita palvelua (sovellusta) varten. Voitetiin meidän iTool idealla huulirasvat.
-Tarkoitus on tehdä tietokantaratkaisun hiekkalaatikossa toimivaa sovellusta varten. Samson toteuttaa käyttöliittymän sovellusta varten käyttöliittymäohjelmointi-kurssin projektityönä.
-Tavoitteena on pystyä vuokraamaan omia työkaluja eteenpäin, sekä vuokrata muiden sovelluksen käyttäjien vuokralle jätettyjä työkaluja.
+Tietokanta tehdään työkalulainaussovellusta varten, tietokannat kurssin (TTZO0800) harjoitustyöhön. Yrittäjyys-tunnilla piti väkisin keksiä ideoita palvelua (sovellusta) varten. Voitetiin meidän iTool idealla huulirasvat.
+Tarkoitus on tehdä tietokantaratkaisun hiekkalaatikossa toimivaa sovellusta varten. Tietokannan toteuttaa opiskelija Samson Azizyan, Jaber Askari ja Joel Aalto. Samson toteuttaa käyttöliittymän sovellusta varten käyttöliittymäohjelmointi-kurssin projektityönä.
+Tavoitteena on pystyä hakemaan vapaita työkaluja, vuokraamaan omia työkaluja eteenpäin sekä vuokrata muiden sovelluksen käyttäjien vuokralle jätettyjä työkaluja.
 
 ## Yleiskuvaus
 
-Jokainen iTool palveluun luonut tunnukset pystyy kirjautumaan palveluun. Käyttäjä pystyy selaamaan kaikki työkalut tai suodattamaan sijainnin tai työkalutyypin mukaan.
+Tietokanta sijoitetaan Labranetin MySQL-palvelimelle. Ulkopuolinen liittymä on vain tekijöiden käytettävissä.
+Tietokantana käytetään MySql relaatiotietokantaa. Käyttöliittymä toteutetaan WPF-sovelluksena (XAML, C#).
+
+Jokainen iTool palveluun luonut tunnukset pystyy kirjautumaan palveluun. Vain kirjautuneet käyttäjät voivat käyttää palvelua. Käyttäjä pystyy selaamaan kaikki työkalut tai suodattamaan sijainnin tai työkalutyypin mukaan.
 Käyttäjä myös pystyy hakemaan "haku"-palkilla työkaluja nimien mukaan. Käyttäjä voi vuokrata työkaluja hinnan mukaan (€/24h). Käyttäjät pystyy kommentoimaan työkaluja ja vastamaan kommenteihin.
 Käyttäjät voi jättä arvion toisistaan liittyen transaktioneihin.
 
-Tietokantana käytetään MySql relaatiotietokantaa. Käyttöliittymä toteutetaan WPF-sovelluksena (XAML, C#)
 
 ## Toiminnot
 
@@ -43,7 +45,7 @@ Tietokantana käytetään MySql relaatiotietokantaa. Käyttöliittymä toteuteta
 | Käyttäjätietojen hallinta | nimi, email, salasana | Pakollinen |
 | Työkalutietojen hallinta | nimi, hinta, saatavuus | Pakollinen |
 | Vuokrausten hallinta | Vuokralla olevien, sekä vapaiden työkalujen | Pakollinen|
-| Kommunikointi | Kommentointi / viestintä | Tärkeä |
+| Kommunikointi | Kommentointi / viestintä | NiceToHave |
 
 <!--1. Käyttäjätietojen (ID, nimi, email, salasana) hallinta
 2. Työkalutietojen (ID, nimi, hinta) hallinta
@@ -54,7 +56,7 @@ Tietokantana käytetään MySql relaatiotietokantaa. Käyttöliittymä toteuteta
 ## Ulkoiset liittymät
 
 Käyttöliittymänä käytetään Samsonin tekemän harjoitustyötä käyttöliittymäohjelmoinnin kurssilla. Käyttöliittymä koostuu 5-6 WPF ikkunasta ja toiminnallisuus on ohjelmoitu c#:lla.
-
+Sovellus on PC:lle.
 
 
 ## Muut ominaisuudet
