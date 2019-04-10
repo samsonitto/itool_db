@@ -95,6 +95,7 @@ Comment --{ Comment
 
 v2
 
+
 ```plantuml
 @startuml
 
@@ -108,7 +109,7 @@ ToolCategory --{ Tool
 Tool --{ Transaction
 Tool --{ Rating
 Transaction --{ Rating
-Transaciton --{ Comment
+Transaction --{ Comment
 Comment --{ Comment
 
 @enduml
