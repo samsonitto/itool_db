@@ -17,6 +17,12 @@
     * [Toiminnot](#toiminnot)
     * [Ulkoiset liittymät](#ulkoiset-liittymät)
     * [Muut ominaisuudet](#muut-ominaisuudet)
+* [Käsitemalli](#käsitemalli)
+* [Relaatiokaavio](#relaatiokaavio)
+* [Käyttöliittymä](#Käyttöliittymä)
+* [Selostus](#selostus)
+* [Itsearviot](#itsearviot)
+* [Linkit](#linkit)
 
 # Vaatimusmäärittely
 
@@ -60,4 +66,24 @@ Sovellus on PC:lle.
 
 
 ## Muut ominaisuudet
+
+
+
+
+# Käsitemalli
+
+
+# Relaatiokaavio
+
+
+# Käyttöliittymä
+
+
+# Selostus
+
+
+# Itsearviot
+
+
+## Linkit
 
