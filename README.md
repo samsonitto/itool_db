@@ -74,7 +74,6 @@ Sovellus on PC:lle.
 
 ```plantuml
 @startuml
-
 user --{ tool
 user --{ transaction
 user --{ transaction
@@ -86,7 +85,6 @@ tool --{ transaction
 transaction -- { tr_completion
 transaciton --{ comment
 comment --{ comment
-
 @enduml
 ```
 
