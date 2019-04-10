@@ -14,24 +14,26 @@ select toolID from transaction where userOwnerID = 2 AND transactionPlannedEndDa
 
 ```sql
 select userName, toolID from user inner join transaction on UserID = userOwnerID where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
-```
 +----------+--------+
 | userName | toolID |
 +----------+--------+
 | kk       |      2 |
 | kk       |      1 |
 +----------+--------+
+```
+
 2 rows in set (0.00 sec)
 
 ```sql
 select userName, userPicture, toolID from user inner join transaction on UserID = userOwnerID where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
-```
 +----------+-------------+--------+
 | userName | userPicture | toolID |
 +----------+-------------+--------+
 | kk       | amanda.jpg  |      2 |
 | kk       | amanda.jpg  |      1 |
 +----------+-------------+--------+
+```
+
 2 rows in set (0.00 sec)
 
 ```sql
