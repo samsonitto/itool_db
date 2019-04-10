@@ -95,6 +95,7 @@ Comment --{ Comment
 
 v2
 
+Päätimme yhdistää TRcompletion taulun transaction tauluun. Lisäksi lisäsimme rating-taulun arvosteluita varten.
 
 ```plantuml
 @startuml
@@ -116,7 +117,7 @@ Comment --{ Comment
 
 # Relaatiokaavio
 
-![](Image/iTool_v3_rating.JPG)
+![](Image/iTool_v3_no_captions.JPG)
 
 * Käyttäjillä voi olla monta työkalua
 * Työkalukategoriassa voi olla monta työkalua
