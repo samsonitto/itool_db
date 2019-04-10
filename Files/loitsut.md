@@ -243,3 +243,12 @@ VALUES ('Samson', 'Azizyan', 'Lehtorannantie 6 a 3', 'samson@samson.fi', 'Jyväs
 ('Jaber','Askari','Keurusaatana 666','jaber@jaber.fi','Jyväskylä','VISA','0404040404',MD5('jaber'),'jaber.jpg'),
 ('Joel','Aalto','Jossainkaukana 69','joel@joel.fi','Lappeenranta','MasterCard','0404040404',MD5('joel'),'joel.jpg');
 ```
+
+### Lisätään 3 transaktiota ilman actualEndDate:a
+
+```sql
+INSERT INTO transaction (transactionStartDate, transactionPlannedEndDate, userOwnerID, userLesseeID, toolID)
+VALUES (CURRENT_TIMESTAMP, SELECT DATEADD(day,5,CURRENT_TIMESTAMP), 1, 2, 1),
+(CURRENT_TIMESTAMP, SELECT DATEADD(day,7,CURRENT_TIMESTAMP), 2, 1, 2),
+(CURRENT_TIMESTAMP, SELECT DATEADD(day,10,CURRENT_TIMESTAMP), 3, 4, 4);
+```
