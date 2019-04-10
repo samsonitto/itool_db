@@ -67,7 +67,7 @@ Sovellus on PC:lle.
 
 ## Muut ominaisuudet
 
-* Salasanojen salaus MD5 encryptiolla.
+* Salasanojen salaus MD5 algoritmillä.
 * 
 
 
@@ -128,6 +128,9 @@ Comment --{ Comment
 * Käyttäjä voi jättää monta kommenttia
 * Käyttäjä voi antaa monta arviota monelle käyttäjälle (Kerran/transaktio)
 * Kommentoija voi jättää vastauksen kommenteihin
+
+* Ratingiin asetetaan triggeri, jotta arvostelu voi olla vain asteikolla 1-5. (linkki)
+* Ratingiin asetetaan triggeri, joka tarkistaa onko käyttäjä antanut jo arvostelun tietystä transaktionista
 
 [Kaavio kommentoituna](Image/iTool_v2_captions.JPG)
 
