@@ -72,6 +72,8 @@ Sovellus on PC:lle.
 
 # Käsitemalli
 
+v1
+
 ```plantuml
 @startuml
 
@@ -84,6 +86,27 @@ User --{ Comment
 ToolCategory --{ Tool
 Tool --{ Transaction
 Transaction --{ TRcompletion
+Transaciton --{ Comment
+Comment --{ Comment
+
+@enduml
+```
+
+v2
+
+```plantuml
+@startuml
+
+User --{ Tool
+User --{ Transaction
+User --{ Transaction
+User --{ Comment
+User --{ Comment
+User --{ Rating
+ToolCategory --{ Tool
+Tool --{ Transaction
+Tool --{ Rating
+Transaction --{ Rating
 Transaciton --{ Comment
 Comment --{ Comment
 
