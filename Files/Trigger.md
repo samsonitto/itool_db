@@ -1,6 +1,5 @@
-
  
- 
+```sql
  DELIMITER $$
 create trigger ratingTrigger before insert on rating for each row
 begin 
@@ -10,4 +9,4 @@ then
  end if;
  end;
  $$
- 
+```
