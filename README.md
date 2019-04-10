@@ -83,7 +83,7 @@ User --{ TRcompletion
 User --{ Comment
 ToolCategory --{ Tool
 Tool --{ Transaction
-Transaction -- { TRcompletion
+Transaction --{ TRcompletion
 Transaciton --{ Comment
 Comment --{ Comment
 
