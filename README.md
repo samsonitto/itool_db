@@ -140,11 +140,11 @@ Comment --{ Comment
 
 <img src="Image/iTool_UI_login.JPG" width="300">
 
-<img src="Image/iTool_UI_mainpage.JPG" width="400">
+<img src="Image/iTool_UI_mainpage.JPG" width="600">
 
-<img src="Image/iTool_UI_addTool.JPG" width="400">
+<img src="Image/iTool_UI_addTool.JPG" width="600">
 
-<img src="Image/iTool_UI_profile.JPG" width="400">
+<img src="Image/iTool_UI_profile.JPG" width="600">
 
 <!--
 ![](Image/iTool_UI_login.JPG)   ![](Image/iTool_UI_mainpage.JPG)
