@@ -130,13 +130,16 @@ Comment --{ Comment
 * Käyttäjä voi antaa monta arviota monelle käyttäjälle (Kerran/transaktio)
 * Kommentoija voi jättää vastauksen kommenteihin
 
-- Ratingiin asetetaan [triggeri](Files/Trigger.md), jotta arvostelu voi olla vain asteikolla 1-5. [](Files/Trigger.md)
-- Ratingiin asetetaan triggeri, joka tarkistaa onko käyttäjä antanut jo arvostelun tietystä transaktionista
+- Ratingin yhteyteen asetetaan [triggeri](Files/Trigger.md), jotta arvostelu voi olla vain asteikolla 1-5 ja tarkistetaan onko arvostelua vielä annettu.
+
 
 [Kaavio kommentoituna](Image/iTool_v3_rating.JPG)
 
 
 # Käyttöliittymä
+
+![]()   ![]()   ![]()
+![]()   ![]()   ![]()
 
 
 # Kommentit työstä
