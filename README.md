@@ -7,7 +7,7 @@
     1. Samson Azizyan (M3156)
     2. Joel Aalto (M2113)
     3. Jaber Askari (M2947)
-* Versio 0.1 9.4.2019
+* Versio 0.8 10.4.2019
 
 # Sisällysluettelo
 
@@ -60,7 +60,7 @@ Käyttäjät voi jättä arvion toisistaan liittyen transaktioneihin.
 
 ## Ulkoiset liittymät
 
-Käyttöliittymänä käytetään Samsonin tekemän harjoitustyötä käyttöliittymäohjelmoinnin kurssilla. Käyttöliittymä koostuu 5-6 WPF ikkunasta ja toiminnallisuus on ohjelmoitu c#:lla.
+Käyttöliittymänä käytetään Samsonin tekemän harjoitustyötä käyttöliittymäohjelmoinnin kurssilla. Käyttöliittymä koostuu 5-6 ikkunasta ja toiminnallisuus on ohjelmoitu c#:lla.
 Sovellus on PC:lle.
 
 
@@ -153,6 +153,14 @@ transaction ja tr_completion taulut, mutta teimme ratingille oman taulun.
 
 
 # Itsearviot
+
+### Samson Azizyan (M3156)
+
+
+### Joel Aalto (M2113)
+
+
+### Jaber Askari (M2947)
 
 
 ## Linkit
