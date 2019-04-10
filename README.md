@@ -138,13 +138,13 @@ Comment --{ Comment
 
 # Käyttöliittymä
 
-<img src="Image/iTool_UI_login.JPG" width="200">
+<img src="Image/iTool_UI_login.JPG" width="300">
 
-<img src="Image/iTool_UI_mainpage.JPG" width="200">
+<img src="Image/iTool_UI_mainpage.JPG" width="400">
 
-<img src="Image/iTool_UI_addTool.JPG" width="200">
+<img src="Image/iTool_UI_addTool.JPG" width="400">
 
-<img src="Image/iTool_UI_profile.JPG" width="200">
+<img src="Image/iTool_UI_profile.JPG" width="400">
 
 <!--
 ![](Image/iTool_UI_login.JPG)   ![](Image/iTool_UI_mainpage.JPG)
