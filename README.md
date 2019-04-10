@@ -109,7 +109,6 @@ ToolCategory --{ Tool
 Tool --{ Transaction
 Tool --{ Rating
 Transaction --{ Rating
-Transaction --{ Comment
 Comment --{ Comment
 
 @enduml
