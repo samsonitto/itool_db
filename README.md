@@ -104,11 +104,11 @@ User --{ Tool
 User --{ Transaction
 User --{ Transaction
 User --{ Comment
-User --{ Comment
+User --{ Rating
 User --{ Rating
 ToolCategory --{ Tool
 Tool --{ Transaction
-Tool --{ Rating
+Tool --{ Comment
 Transaction --{ Rating
 Comment --{ Comment
 
