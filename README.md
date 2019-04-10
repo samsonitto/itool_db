@@ -74,17 +74,17 @@ Sovellus on PC:lle.
 
 ```plantuml
 @startuml
-user --{ tool
-user --{ transaction
-user --{ transaction
-user --{ tr_completion
-user --{ tr_completion
-user --{ comment
-toolCategory --{ tool
-tool --{ transaction
-transaction -- { tr_completion
-transaciton --{ comment
-comment --{ comment
+User --{ Tool
+User --{ Transaction
+User --{ Transaction
+User --{ Tr_completion
+User --{ Tr_completion
+User --{ Comment
+ToolCategory --{ Tool
+Tool --{ Transaction
+Transaction -- { Tr_completion
+Transaciton --{ Comment
+Comment --{ Comment
 @enduml
 ```
 
