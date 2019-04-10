@@ -95,7 +95,7 @@ Comment --{ Comment
 
 v2
 
-Päätimme yhdistää TRcompletion taulun transaction tauluun. Lisäksi lisäsimme rating-taulun arvosteluita varten.
+Päätimme yhdistää TRcompletion taulun transaction tauluun, koska siihen olisin tullut yksi-yhteen yhteys. Lisäksi lisäsimme rating-taulun arvosteluita varten.
 
 ```plantuml
 @startuml
@@ -122,6 +122,7 @@ Comment --{ Comment
 * Käyttäjillä voi olla monta työkalua
 * Työkalukategoriassa voi olla monta työkalua
 * Yksi työkalu voi olla monessa transaktionissa mukana, eri ajanjaksoilla
+* Transactiossa vain yksi työkalu
 * Työkaluja vuokranneella voi olla monia transaktioneita
 * Käyttäjä voi vastaanottaa arvioita monelta käyttäjältä (Kerran/transaktio)
 * Työkalun omistajalla voi olla monta transaktiota
