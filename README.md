@@ -20,7 +20,7 @@
 * [Käsitemalli](#käsitemalli)
 * [Relaatiokaavio](#relaatiokaavio)
 * [Käyttöliittymä](#käyttöliittymä)
-* [Selostus](#selostus)
+* [Kommentit](#kommentit-työstä)
 * [Itsearviot](#itsearviot)
 * [Linkit](#linkit)
 
@@ -67,8 +67,8 @@ Sovellus on PC:lle.
 
 ## Muut ominaisuudet
 
-* Salasanojen salaus MD5 algoritmillä.
-* 
+* Salasanojen salaus MD5 algoritmillä
+
 
 
 # Käsitemalli
@@ -139,7 +139,10 @@ Comment --{ Comment
 # Käyttöliittymä
 
 
-# Selostus
+# Kommentit työstä
+
+Suurimmat hankaluudet tietokantaa suunnitellessa tuli vastaan rating, comment ja tr_completion tauluissa, joita säädimme pitkään. lopulta päädyimme yhdistämään 
+transaction ja tr_completion taulut, mutta teimme ratingille oman taulun.
 
 
 # Itsearviot
