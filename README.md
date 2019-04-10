@@ -138,9 +138,18 @@ Comment --{ Comment
 
 # Käyttöliittymä
 
-![](Image/iTool_UI_login.JPG)   ![](Image/iTool_UI_mainpage.JPG)
-![](Image/iTool_UI_mainpage.JPG)   ![](Image/iTool_UI_profile.JPG)
+<img src="Image/iTool_UI_login.JPG" width="150" heigth="200">
 
+<img src="Image/iTool_UI_mainpage.JPG" width="150" height="150">
+
+<img src="Image/iTool_UI_addTool.JPG" width="150" height="150">
+
+<img src="Image/iTool_UI_profile.JPG" width="150" height="150">
+
+<!--
+![](Image/iTool_UI_login.JPG)   ![](Image/iTool_UI_mainpage.JPG)
+![](Image/iTool_UI_addTool.JPG)   ![](Image/iTool_UI_profile.JPG)
+-->
 
 # Kommentit työstä
 
