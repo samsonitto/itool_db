@@ -298,3 +298,22 @@ UPDATE transaction SET actualEndDate = CURRENT_TIMESTAMP WHERE transactionID = 4
 |             7 | 2019-04-10 14:31:17  | 2019-04-22 14:31:17       |           4 |            1 |      9 | NULL                |
 +---------------+----------------------+---------------------------+-------------+--------------+--------+---------------------+
 ```
+
+### Lisätään muutama kommettia
+
+```sql
+INSERT INTO comment (commentDate, commentText, userID, commentParentID, toolID)
+VALUES (CURRENT_TIMESTAMP, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s', 1, null, 6),
+(CURRENT_TIMESTAMP, 'when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries', 2, null, 6),
+(CURRENT_TIMESTAMP,'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters', 3,1,6);
+
++-----------+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-----------------+--------+
+| commentID | commentDate         | commentText                                                                                                                                                                                                              | userID | commentParentID | toolID |
++-----------+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-----------------+--------+
+|         1 | 2019-04-10 17:43:25 | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s                                                                   |      1 |            NULL |      6 |
+|         2 | 2019-04-10 17:45:42 | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s                                                                   |      1 |            NULL |      6 |
+|         3 | 2019-04-10 17:45:42 | when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries                                                                                     |      2 |            NULL |      6 |
+|         4 | 2019-04-10 17:45:42 | It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters |      3 |               1 |      6 |
++-----------+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-----------------+--------+
+```
+
