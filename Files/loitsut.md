@@ -289,4 +289,12 @@ CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE (transactionPlannedEnd
 ### Palautetaan työkalu omistajalleen
 ```sql
 UPDATE transaction SET actualEndDate = CURRENT_TIMESTAMP WHERE transactionID = 4 AND actualEndDate IS NULL;
++---------------+----------------------+---------------------------+-------------+--------------+--------+---------------------+
+| transactionID | transactionStartDate | transactionPlannedEndDate | userOwnerID | userLesseeID | toolID | actualEndDate       |
++---------------+----------------------+---------------------------+-------------+--------------+--------+---------------------+
+|             4 | 2019-04-10 14:06:44  | 2019-04-15 14:06:44       |           1 |            2 |      6 | 2019-04-10 17:22:33 |
+|             5 | 2019-04-10 14:06:44  | 2019-04-17 14:06:44       |           2 |            1 |      7 | NULL                |
+|             6 | 2019-04-10 14:06:44  | 2019-04-20 14:06:44       |           3 |            4 |      8 | NULL                |
+|             7 | 2019-04-10 14:31:17  | 2019-04-22 14:31:17       |           4 |            1 |      9 | NULL                |
++---------------+----------------------+---------------------------+-------------+--------------+--------+---------------------+
 ```
