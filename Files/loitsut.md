@@ -2,13 +2,14 @@
 
 ```sql
 select toolID from transaction where userOwnerID = 2 AND transactionPlannedEndDate >= '2019-03-26 00:00:00';
-```
 +--------+
 | toolID |
 +--------+
 |      2 |
 |      1 |
 +--------+
+```
+
 2 rows in set (0.01 sec)
 
 ```sql
