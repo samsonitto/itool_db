@@ -138,11 +138,11 @@ SELECT * FROM all_tools WHERE userOwnerID != 1 AND toolID NOT IN (SELECT toolID 
 
 ```sql
 INSERT INTO tool (toolName, toolDescription, toolPrice, toolCondition, toolCategoryID, userOwnerID, toolPicture)
-VALUES ('Vasara','Iso vasara',1,'Hyvä',11,11, 'hammer.png'),
-('Ruuvimeisseli','Talttapäinen iso meisseli',0.3,'Uudenveroinen',11,10,'screwdriver.png'),
-('Jakoavain','Pieni jakoavain',0.01,'Kelvoton',11,12,'wrench.png'),
-('Ruuviväännin','Sähköllä toimiva ruuviväännin',3,'Hyvä',20,4,'escrewdriver.png'),
-('Porakone','Perus porakone',2.5,'Uudenveroinen',20,9,'drill.png');
+VALUES ('Vasara','Iso vasara',1,'Hyvä',5,11, 'hammer.png'),
+('Ruuvimeisseli','Talttapäinen iso meisseli',0.3,'Uudenveroinen',5,10,'screwdriver.png'),
+('Jakoavain','Pieni jakoavain',0.01,'Kelvoton',5,12,'wrench.png'),
+('Ruuviväännin','Sähköllä toimiva ruuviväännin',3,'Hyvä',14,4,'escrewdriver.png'),
+('Porakone','Perus porakone',2.5,'Uudenveroinen',14,9,'drill.png');
 ```
 
 ### Poistetaan näkymä all_tools ja luodaan uudestaan all_tools, joka sisälttää userLesseeID:
