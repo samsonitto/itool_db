@@ -140,7 +140,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `M3156_3`.`rating`                                         --Taulun 'rating' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`rating` (                     -Sarakkeiden määritys rating-tauluun
+CREATE TABLE IF NOT EXISTS `M3156_3`.`rating` (                     --Sarakkeiden määritys rating-tauluun
   `ratingID` INT NOT NULL AUTO_INCREMENT,
   `ratingFeedback` VARCHAR(1000) NULL,
   `raterID` INT NOT NULL,
