@@ -234,3 +234,12 @@ VALUES ('Samson', 'Azizyan', 'Lehtorannantie 6 a 3', 'samson@samson.fi', 'Jyväs
 ('Jaber','Askari','Keurusaatana 666','jaber@jaber.fi','Jyväskylä','VISA','0404040404','jaber','jaber.jpg'),
 ('Joel','Aalto','Jossainkaukana 69','joel@joel.fi','Lappeenranta','MasterCard','0404040404','joel','joel.jpg');
 ```
+
+### Luodaan 3 samaa käyttäjää salatuilla salasanoilla
+
+```sql
+INSERT INTO user (userName, userSurname, userAddress, userEmail, userLocation, paymentMethod, userMobile, userPassword, userPicture)
+VALUES ('Samson', 'Azizyan', 'Lehtorannantie 6 a 3', 'samson@samson.fi', 'Jyväskylä', 'Paypal', '0400000000', MD5('samson'), 'samson_profile.jpg'),
+('Jaber','Askari','Keurusaatana 666','jaber@jaber.fi','Jyväskylä','VISA','0404040404',MD5('jaber'),'jaber.jpg'),
+('Joel','Aalto','Jossainkaukana 69','joel@joel.fi','Lappeenranta','MasterCard','0404040404',MD5('joel'),'joel.jpg');
+```
