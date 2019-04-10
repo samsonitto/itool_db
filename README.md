@@ -74,6 +74,12 @@ Sovellus on PC:lle.
 
 ```plantuml
 @startuml
+User --{ Comment
+ToolCategory --{ Tool
+Tool --{ Transaction
+Transaction -- { TRcompletion
+Transaciton --{ Comment
+Comment --{ Comment
 User --{ Tool
 User --{ Transaction
 User --{ Transaction
