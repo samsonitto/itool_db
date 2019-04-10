@@ -285,3 +285,8 @@ CREATE VIEW rented_tools AS SELECT * FROM all_tools WHERE (transactionPlannedEnd
 |      8 |          12 |            4 |             6 |              5 | wrench.png      | Jakoavain     | Pieni jakoavain           |      0.01 | Kelvoton      | K▒sity▒kalut     | Lahti        | 2019-04-20 14:06:44       | NULL          |
 +--------+-------------+--------------+---------------+----------------+-----------------+---------------+---------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
 ```
+
+### Palautetaan työkalu omistajalleen
+```sql
+UPDATE transaction SET actualEndDate = CURRENT_TIMESTAMP WHERE transactionID = 4 AND actualEndDate IS NULL;
+```
