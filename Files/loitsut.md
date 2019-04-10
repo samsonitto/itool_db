@@ -224,6 +224,13 @@ CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userL
 
 ```
 
-## Päivitetään rented_tools näkymä, luomalla se uudestaan. Näkymässä näkyy nyt transactionID vanhojen ominaisuuksien lisäksi.
+### Päivitetään rented_tools näkymä, luomalla se uudestaan. Näkymässä näkyy nyt transactionID vanhojen ominaisuuksien lisäksi.
 
+### Luodaan 3 käyttäjää (user)
 
+```sql
+INSERT INTO user (userName, userSurname, userAddress, userEmail, userLocation, paymentMethod, userMobile, userPassword, userPicture)
+VALUES ('Samson', 'Azizyan', 'Lehtorannantie 6 a 3', 'samson@samson.fi', 'Jyväskylä', 'Paypal', '0400000000', 'samson', 'samson_profile.jpg'),
+('Jaber','Askari','Keurusaatana 666','jaber@jaber.fi','Jyväskylä','VISA','0404040404','jaber','jaber.jpg'),
+('Joel','Aalto','Jossainkaukana 69','joel@joel.fi','Lappeenranta','MasterCard','0404040404','joel','joel.jpg');
+```
