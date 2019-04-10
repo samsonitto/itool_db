@@ -258,3 +258,9 @@ VALUES (CURRENT_TIMESTAMP, (SELECT date_add(CURRENT_TIMESTAMP, INTERVAL 5 DAY)),
 ```sql
 ALTER TABLE rating ADD rating INT(1) NOT NULL;
 ```
+
+### Luodaan uusi "all_tools" näkymä, koska ollaan yhdistetty "tr_completion" ja "transaction" taulut yhteen
+
+```sql
+CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userLesseeID, transaction.transactionID, tool.toolCategoryID, toolPicture, toolName, toolDescription, toolPrice, toolCondition, toolCategoryName, userLocation, transactionPlannedEndDate, actualEndDate FROM tool INNER JOIN toolCategory ON tool.toolCategoryID = toolCategory.toolCategoryID LEFT JOIN transaction ON tool.toolID = transaction.toolID INNER JOIN user ON tool.userOwnerID = userID;
+```
