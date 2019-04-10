@@ -36,7 +36,7 @@ VALUES ('iajdsfoisajhfoisajhfd', 1,1,5,4);
 TULOS: 15:12:44	INSERT INTO rating (ratingFeedback, raterID, ratedID, transactionID, rating) VALUES ('iajdsfoisajhfoisajhfd', 1,1,5,4)	Error Code: 1305. PROCEDURE M3156_3.'Only 1-5! One rating per transaction! Can't rate yourself!' does not exist	0.015 sec
 
 
-### Annetaan arvio toisen kerran samalle henkilölle (ei pitöisi mennä läpi)
+### Annetaan arvio toisen kerran samalle henkilölle (ei pitäisi mennä läpi)
 
 ```sql
 INSERT INTO rating (ratingFeedback, raterID, ratedID, transactionID, rating)
