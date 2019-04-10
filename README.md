@@ -66,7 +66,8 @@ Sovellus on PC:lle.
 
 ## Muut ominaisuudet
 
-* Salasanojen salaus [MD5](https://gitlab.labranet.jamk.fi/M2947/itool/blob/master/Files/loitsut.md#luodaan-3-samaa-k%C3%A4ytt%C3%A4j%C3%A4%C3%A4-salatuilla-salasanoilla algoritmillä
+* Salasanojen salaus [MD5](https://gitlab.labranet.jamk.fi/M2947/itool/blob/master/Files/loitsut.md#luodaan-3-samaa-k%C3%A4ytt%C3%A4j%C3%A4%C3%A4-salatuilla-salasanoilla) algoritmillä
+*  
 
 
 
