@@ -141,6 +141,10 @@ Comment --{ Comment
 
 # Kommentit työstä
 
+Idean löytäminen harjoitustyölle oli helppoa, päätimme heti alkaa työstämään yrittäjyyskurssilta saamaamme ideaa työkaluvuokraus-palvelusta.
+Loimme nopeasti ensimmäisen version tietokannasta ja rupesimme lisäämään tietoa, sekä tekemään kyselyitä. Sen pohjalta lähdimme parantelemaan tietokantaa ja lisäsimme
+tarvittavia osia.
+
 Suurimmat hankaluudet tietokantaa suunnitellessa tuli vastaan rating, comment ja tr_completion tauluissa, joita säädimme pitkään. lopulta päädyimme yhdistämään 
 transaction ja tr_completion taulut, mutta teimme ratingille oman taulun.
 
