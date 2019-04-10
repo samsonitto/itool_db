@@ -12,13 +12,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema M3156_3
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `M3156_3` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `M3156_3` DEFAULT CHARACTER SET utf8 ;  --Luo scheman M3156_3, jos sellaista ei vielä ole 
 USE `M3156_3` ;
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`user`
+-- Table `M3156_3`.`user`                                           --Taulun 'user' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`user` (
+CREATE TABLE IF NOT EXISTS `M3156_3`.`user` (                       --Sarakkeiden määritys user-tauluun
   `userID` INT NOT NULL AUTO_INCREMENT,
   `userName` VARCHAR(45) NOT NULL,
   `userSurname` VARCHAR(45) NOT NULL,
@@ -34,9 +34,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`toolCategory`
+-- Table `M3156_3`.`toolCategory`                                   --Taulun 'toolCategory' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`toolCategory` (
+CREATE TABLE IF NOT EXISTS `M3156_3`.`toolCategory` (               --Sarakkeiden määritys toolCategory-tauluun
   `toolCategoryID` INT NOT NULL AUTO_INCREMENT,
   `toolCategoryName` VARCHAR(128) NOT NULL,
   `toolCategoryDescription` VARCHAR(1000) NOT NULL,
@@ -45,9 +45,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`tool`
+-- Table `M3156_3`.`tool`                                           --Taulun 'tool' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`tool` (
+CREATE TABLE IF NOT EXISTS `M3156_3`.`tool` (                       --Sarakkeiden määritys tool-tauluun
   `toolID` INT NOT NULL AUTO_INCREMENT,
   `toolName` VARCHAR(128) NOT NULL,
   `toolDescription` VARCHAR(1000) NOT NULL,
@@ -73,9 +73,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`transaction`
+-- Table `M3156_3`.`transaction`                                    --Taulun 'transaction' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`transaction` (
+CREATE TABLE IF NOT EXISTS `M3156_3`.`transaction` (                --Sarakkeiden määritys transaction-tauluun
   `transactionID` INT NOT NULL AUTO_INCREMENT,
   `transactionStartDate` DATETIME NOT NULL,
   `transactionPlannedEndDate` DATETIME NOT NULL,
@@ -106,9 +106,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`comment`
+-- Table `M3156_3`.`comment`                                        --Taulun 'comment' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`comment` (
+CREATE TABLE IF NOT EXISTS `M3156_3`.`comment` (                    --Sarakkeiden määritys comment-tauluun
   `commentID` INT NOT NULL AUTO_INCREMENT,
   `commentDate` DATETIME NOT NULL,
   `commentText` VARCHAR(1000) NULL,
@@ -138,9 +138,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `M3156_3`.`rating`
+-- Table `M3156_3`.`rating`                                         --Taulun 'rating' luonti
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `M3156_3`.`rating` (
+CREATE TABLE IF NOT EXISTS `M3156_3`.`rating` (                     -Sarakkeiden määritys rating-tauluun
   `ratingID` INT NOT NULL AUTO_INCREMENT,
   `ratingFeedback` VARCHAR(1000) NULL,
   `raterID` INT NOT NULL,
