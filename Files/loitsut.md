@@ -263,4 +263,14 @@ ALTER TABLE rating ADD rating INT(1) NOT NULL;
 
 ```sql
 CREATE VIEW all_tools AS SELECT tool.toolID, tool.userOwnerID, transaction.userLesseeID, transaction.transactionID, tool.toolCategoryID, toolPicture, toolName, toolDescription, toolPrice, toolCondition, toolCategoryName, userLocation, transactionPlannedEndDate, actualEndDate FROM tool INNER JOIN toolCategory ON tool.toolCategoryID = toolCategory.toolCategoryID LEFT JOIN transaction ON tool.toolID = transaction.toolID INNER JOIN user ON tool.userOwnerID = userID;
++--------+-------------+--------------+---------------+----------------+------------------+---------------+-------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+| toolID | userOwnerID | userLesseeID | transactionID | toolCategoryID | toolPicture      | toolName      | toolDescription               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | actualEndDate |
++--------+-------------+--------------+---------------+----------------+------------------+---------------+-------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+|      6 |          11 |            2 |             4 |              5 | hammer.png       | Vasara        | Iso vasara                    |      1.00 | Hyv▒          | K▒sity▒kalut     | Tampere      | 2019-04-15 14:06:44       | NULL          |
+|      7 |          10 |            1 |             5 |              5 | screwdriver.png  | Ruuvimeisseli | Talttap▒inen iso meisseli     |      0.30 | Uudenveroinen | K▒sity▒kalut     | Vaasa        | 2019-04-17 14:06:44       | NULL          |
+|      8 |          12 |            4 |             6 |              5 | wrench.png       | Jakoavain     | Pieni jakoavain               |      0.01 | Kelvoton      | K▒sity▒kalut     | Lahti        | 2019-04-20 14:06:44       | NULL          |
+|      9 |           4 |         NULL |          NULL |             14 | escrewdriver.png | Ruuviv▒▒nnin  | S▒hk▒ll▒ toimiva ruuviv▒▒nnin |      3.00 | Hyv▒          | S▒hk▒ty▒kalut    | Oulu         | NULL                      | NULL          |
+|     10 |           9 |         NULL |          NULL |             14 | drill.png        | Porakone      | Perus porakone                |      2.50 | Uudenveroinen | S▒hk▒ty▒kalut    | Lahti        | NULL                      | NULL          |
++--------+-------------+--------------+---------------+----------------+------------------+---------------+-------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+
 ```
