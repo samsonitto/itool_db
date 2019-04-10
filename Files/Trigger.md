@@ -56,7 +56,8 @@ VALUES ('iajdsfoisajhfoisajhfd', 1,2,5,5);
 
 TULOS: 15:18:14	INSERT INTO rating (ratingFeedback, raterID, ratedID, transactionID, rating) VALUES ('iajdsfoisajhfoisajhfd', 1,2,5,5)	1 row(s) affected	0.000 sec
 
-Näiden testien jälkeen löysimme ongelmie triggerissä (Error Code: 1242. Subquery returns more than 1 row).
+
+### Näiden testien jälkeen löysimme ongelmie triggerissä (Error Code: 1242. Subquery returns more than 1 row).
 
 
 # Uusi trigger (toimii)
