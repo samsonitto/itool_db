@@ -142,3 +142,8 @@ Comment --{ Comment
 
 ## Linkit
 
+* [Scheman luonti](Files/iTool_code.md)
+* [SQL queries](Files/loitsut.md)
+* 
+
+
