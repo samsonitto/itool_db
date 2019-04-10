@@ -19,7 +19,7 @@
     * [Muut ominaisuudet](#muut-ominaisuudet)
 * [Käsitemalli](#käsitemalli)
 * [Relaatiokaavio](#relaatiokaavio)
-* [Käyttöliittymä](#Käyttöliittymä)
+* [Käyttöliittymä](#käyttöliittymä)
 * [Selostus](#selostus)
 * [Itsearviot](#itsearviot)
 * [Linkit](#linkit)
@@ -72,6 +72,23 @@ Sovellus on PC:lle.
 
 # Käsitemalli
 
+```plantuml
+@startuml
+
+user --{ tool
+user --{ transaction
+user --{ transaction
+user --{ tr_completion
+user --{ tr_completion
+user --{ comment
+toolCategory --{ tool
+tool --{ transaction
+transaction -- { tr_completion
+transaciton --{ comment
+comment --{ comment
+
+@enduml
+```
 
 # Relaatiokaavio
 
