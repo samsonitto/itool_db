@@ -317,3 +317,43 @@ VALUES (CURRENT_TIMESTAMP, 'Lorem Ipsum is simply dummy text of the printing and
 +-----------+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-----------------+--------+
 ```
 
+### Haetaan käyttäjän 1 kaikki omistamat työkalut, jotka on lainassa
+
+```sql
+SELECT * FROM rented_tools WHERE userOwnerID = 1;
++--------+-------------+--------------+---------------+----------------+-------------+----------+---------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+| toolID | userOwnerID | userLesseeID | transactionID | toolCategoryID | toolPicture | toolName | toolDescription     | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | actualEndDate |
++--------+-------------+--------------+---------------+----------------+-------------+----------+---------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+|     12 |           1 |            3 |             9 |              5 |             | Kirves   | Hyv▒ kirves saatana |      2.00 | Pristine      | K▒sity▒kalut     | Jyv▒skyl▒    | 2019-04-14 17:36:13       | NULL          |
++--------+-------------+--------------+---------------+----------------+-------------+----------+---------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+```
+
+### Haetaan käyttäjän kaikki työkalut, joita käyttäjä 1 on vuokrannut
+
+```sql
+SELECT * FROM rented_tools WHERE userLesseeID = 1;
++--------+-------------+--------------+---------------+----------------+------------------+---------------+-------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+| toolID | userOwnerID | userLesseeID | transactionID | toolCategoryID | toolPicture      | toolName      | toolDescription               | toolPrice | toolCondition | toolCategoryName | userLocation | transactionPlannedEndDate | actualEndDate |
++--------+-------------+--------------+---------------+----------------+------------------+---------------+-------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+|      7 |          10 |            1 |             5 |              5 | screwdriver.png  | Ruuvimeisseli | Talttap▒inen iso meisseli     |      0.30 | Uudenveroinen | K▒sity▒kalut     | Vaasa        | 2019-04-17 14:06:44       | NULL          |
+|      9 |           4 |            1 |             7 |             14 | escrewdriver.png | Ruuviv▒▒nnin  | S▒hk▒ll▒ toimiva ruuviv▒▒nnin |      3.00 | Hyv▒          | S▒hk▒ty▒kalut    | Oulu         | 2019-04-22 14:31:17       | NULL          |
++--------+-------------+--------------+---------------+----------------+------------------+---------------+-------------------------------+-----------+---------------+------------------+--------------+---------------------------+---------------+
+```
+
+### Haetaan kaikki Rovanniemellä saatavilla olevat työkalut
+
+```sql
+SELECT toolName, toolCondition, toolPrice, toolCategoryName, all_tools.userLocation as 'toolLocation', concat(userName,' ', userSurname) as 'owner' FROM all_tools INNER JOIN user ON userOwnerID = userID WHERE all_tools.userLocation = 'Rovanniemi';
++--------------+---------------+-----------+-----------------------------+--------------+---------------+
+| toolName     | toolCondition | toolPrice | toolCategoryName            | toolLocation | owner         |
++--------------+---------------+-----------+-----------------------------+--------------+---------------+
+| Rakennuskyn▒ | Ok            |     13.30 | Juottaminen                 | Rovanniemi   | Lwfzhp Dbzmob |
+| Miekka       | Poor          |     19.60 | K▒sity▒kalut                | Rovanniemi   | Lwfzhp Dbzmob |
+| Kirves       | Good          |     20.60 | S▒hk▒ty▒kalut               | Rovanniemi   | Lwfzhp Dbzmob |
+| Kirves       | Pristine      |      1.30 | S▒hk▒ty▒kalut               | Rovanniemi   | Mylkyc Ymaeai |
+| Miekka       | Ok            |     20.70 | Leikkuuter▒t                | Rovanniemi   | Mylkyc Ymaeai |
+| Porakone     | Good          |      8.90 | Hitsauskoneet ja tarvikkeet | Rovanniemi   | Mylkyc Ymaeai |
+| Saha         | Ok            |      6.70 | Ty▒kalujen s▒ilytt▒minen    | Rovanniemi   | Mylkyc Ymaeai |
+| Pensseli     | Poor          |     10.10 | Poranter▒t                  | Rovanniemi   | Mylkyc Ymaeai |
++--------------+---------------+-----------+-----------------------------+--------------+---------------+
+```
