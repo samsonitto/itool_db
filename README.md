@@ -163,7 +163,10 @@ transaction ja tr_completion taulut, mutta teimme ratingille oman taulun.
 # Itsearviot
 
 ### Samson Azizyan (M3156)
-
+Arvosanaehdotus: 4,5
+Mielestäni onnituin hyvin tässä harjoitustyössä. Olin kaikessa mukana: tietokannan suunnittelussa, toteutuksessa, dokumentoinnissa ja toteutin käyttöliittymän kokonaan yksin,
+johon meni noin 30-40h.
+Tietokantamme ei ole maailman laajin, mutta on monipuolinen. Löytyy salasanojen salaus, taulussa itseensä liitos ja triggeri. Toimii käyttöliittymän kanssa mainiosti.
 
 ### Joel Aalto (M2113)
 
