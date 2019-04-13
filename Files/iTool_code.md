@@ -19,8 +19,8 @@ USE `M3156_3` ;
 -- Table `M3156_3`.`user`                                           --Taulun 'user' luonti
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `M3156_3`.`user` (                       --Sarakkeiden määritys user-tauluun
-  `userID` INT NOT NULL AUTO_INCREMENT,
-  `userName` VARCHAR(45) NOT NULL,
+  `userID` INT NOT NULL AUTO_INCREMENT,                             --NOT NULL: userID ei saa olla tyhjä (NULL), AUTO_INCREMENT: sarake täyttyy automaattisesti sen mukaan kun lisätään uusia usereita
+  `userName` VARCHAR(45) NOT NULL,                                  --VARCHAR(45): userName on 45 merkin pituinen maksimissaan merkkijono 
   `userSurname` VARCHAR(45) NOT NULL,
   `userAddress` VARCHAR(128) NOT NULL,
   `userEmail` VARCHAR(128) NOT NULL,
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`user` (                       --Sarakkeide
   `paymentMethod` VARCHAR(128) NOT NULL,
   `userMobile` VARCHAR(45) NOT NULL,
   `userPassword` VARCHAR(45) NOT NULL,
-  `userPicture` VARCHAR(128) NULL,
-  PRIMARY KEY (`userID`))
+  `userPicture` VARCHAR(128) NULL,                                  --NULL: userPicture ei ola pakko antaa uusille usereille
+  PRIMARY KEY (`userID`))                                           --PRIMARY KEY: userID on taulun pääavain, sen avulla voi viitata muista taulusta
 ENGINE = InnoDB;
 
 
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 -- Table `M3156_3`.`toolCategory`                                   --Taulun 'toolCategory' luonti
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `M3156_3`.`toolCategory` (               --Sarakkeiden määritys toolCategory-tauluun
-  `toolCategoryID` INT NOT NULL AUTO_INCREMENT,
+  `toolCategoryID` INT NOT NULL AUTO_INCREMENT,                     --INT: ainoastaan kokonaislukuja
   `toolCategoryName` VARCHAR(128) NOT NULL,
   `toolCategoryDescription` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`toolCategoryID`))
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`tool` (                       --Sarakkeide
   `toolID` INT NOT NULL AUTO_INCREMENT,
   `toolName` VARCHAR(128) NOT NULL,
   `toolDescription` VARCHAR(1000) NOT NULL,
-  `toolPrice` DECIMAL(10,2) NOT NULL,
+  `toolPrice` DECIMAL(10,2) NOT NULL,                               --DECIMAL(10,2): 10 numeron pituinen maksimissaan desimaaliluku, näytetään 2 desimaalin tarkkuudella
   `toolCondition` VARCHAR(45) NOT NULL,
   `toolCategoryID` INT NOT NULL,
   `userOwnerID` INT NOT NULL,
@@ -60,10 +60,10 @@ CREATE TABLE IF NOT EXISTS `M3156_3`.`tool` (                       --Sarakkeide
   INDEX `fk_tool_toolCategory1_idx` (`toolCategoryID` ASC),
   INDEX `fk_tool_user1_idx` (`userOwnerID` ASC),
   CONSTRAINT `fk_tool_toolCategory1`
-    FOREIGN KEY (`toolCategoryID`)
+    FOREIGN KEY (`toolCategoryID`)                                  --toolCategoryID: viiteavain, viittaa "toolCategory"-taulun primääriavaimeen
     REFERENCES `M3156_3`.`toolCategory` (`toolCategoryID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE NO ACTION                                             --viiteavainta ei voi poistaa
+    ON UPDATE NO ACTION,                                            --viiteavainta ei voi päivittää
   CONSTRAINT `fk_tool_user1`
     FOREIGN KEY (`userOwnerID`)
     REFERENCES `M3156_3`.`user` (`userID`)
@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `M3156_3`.`transaction` (                --Sarakkeiden määritys transaction-tauluun
   `transactionID` INT NOT NULL AUTO_INCREMENT,
-  `transactionStartDate` DATETIME NOT NULL,
+  `transactionStartDate` DATETIME NOT NULL,                         --DATETIME: päivämäärä tyyppinen sarake
   `transactionPlannedEndDate` DATETIME NOT NULL,
   `userOwnerID` INT NOT NULL,
   `userLesseeID` INT NOT NULL,
