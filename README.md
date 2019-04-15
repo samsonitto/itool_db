@@ -153,7 +153,7 @@ Comment --{ Comment
 <img src="Image/iTool_rating.JPG" alt="Profile" width="400">
 
 ### Profiilinmuokkaussivu
-<img src="Image/iTool_editProfile.JPGG" alt="Profile" width="600">
+<img src="Image/iTool_editProfile.JPG" alt="Profile" width="600">
 
  
 
