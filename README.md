@@ -137,14 +137,19 @@ Comment --{ Comment
 
 # Käyttöliittymä
 
+### Kirjautuminen
 <img src="Image/iTool_UI_login.JPG" alt="Login screen" width="300">
 
+### Pääsivu
 <img src="Image/iTool_UI_mainpage.JPG" alt="Mainpage" width="600">
 
+### Lisää työkalu
 <img src="Image/iTool_UI_addTool.JPG" alt="Add tool" width="600">
 
+### Profiilisivu
 <img src="Image/iTool_UI_profile.JPG" alt="Profile" width="600">
 
+### Arviosivu
 <img src="Image/iTool_rating.JPG" alt="Profile" width="400">
  
 
