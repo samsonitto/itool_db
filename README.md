@@ -171,7 +171,8 @@ johon meni noin 30-40h. Tietokantamme ei ole maailman laajin, mutta on monipuoli
 
 
 ### Jaber Askari (M2947)
-
+* Arvosanaehdotus: 4
+* Olemme tehneet kaikki valinnaiset ja pakolliset vaatimukset. Saimme toimimaan triggeri ja salasanojen salaus. 
 
 ## Linkit
 
