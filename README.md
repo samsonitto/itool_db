@@ -145,6 +145,9 @@ Comment --{ Comment
 
 <img src="Image/iTool_UI_profile.JPG" alt="Profile" width="600">
 
+<img src="Image/iTool_rating.JPG" alt="Profile" width="400">
+ 
+
 <!--
 ![](Image/iTool_UI_login.JPG)   ![](Image/iTool_UI_mainpage.JPG)
 ![](Image/iTool_UI_addTool.JPG)   ![](Image/iTool_UI_profile.JPG)
