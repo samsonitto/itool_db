@@ -151,6 +151,10 @@ Comment --{ Comment
 
 ### Arviosivu
 <img src="Image/iTool_rating.JPG" alt="Profile" width="400">
+
+### Profiilinmuokkaussivu
+<img src="Image/iTool_editProfile.JPGG" alt="Profile" width="600">
+
  
 
 <!--
