@@ -132,8 +132,8 @@ Comment --{ Comment
 - Ratingin yhteyteen asetetaan [triggeri](Files/Trigger.md), jotta arvostelu voi olla vain asteikolla 1-5 ja tarkistetaan onko arvostelua vielä annettu.
 
 
-[Kaavio kommentoituna](Image/iTool_v3_rating.JPG)
-[Vanha versio](Image/iTool.JPG)
+ - [Kaavio kommentoituna](Image/iTool_v3_rating.JPG)
+ - [Vanha versio](Image/iTool.JPG)
 
 # Käyttöliittymä
 
