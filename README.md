@@ -180,7 +180,8 @@ transaction ja tr_completion taulut, mutta teimme ratingille oman taulun.
 johon meni noin 30-40h. Tietokantamme ei ole maailman laajin, mutta on monipuolinen. Löytyy salasanojen salaus, taulussa itseensä liitos ja triggeri. Toimii käyttöliittymän kanssa mainiosti.
 
 ### Joel Aalto (M2113)
-
+* Arvosanaehdotus: 4
+* Osasin hyvin osallistua harjoitustyöhön kurssilla opittujen asioiden avulla. Saimme mielestäni tehtyä hyvän ja monipuolisen työn.
 
 ### Jaber Askari (M2947)
 * Arvosanaehdotus: 4
