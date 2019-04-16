@@ -71,7 +71,7 @@ Sovellus on PC:lle.
 
 # Käsitemalli
 
-v1
+[v1](Image/iTool.JPG)
 
 ```plantuml
 @startuml
@@ -91,7 +91,7 @@ Comment --{ Comment
 @enduml
 ```
 
-v2
+[v2](Image/iTool_v2.JPG)
 
 Päätimme yhdistää TRcompletion taulun transaction tauluun, koska siihen olisin tullut yksi-yhteen yhteys. Lisäksi lisäsimme rating-taulun arvosteluita varten.
 
