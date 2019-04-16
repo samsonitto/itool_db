@@ -133,7 +133,7 @@ Comment --{ Comment
 
 
 [Kaavio kommentoituna](Image/iTool_v3_rating.JPG)
-
+[Vanha versio](Image/iTool.JPG)
 
 # Käyttöliittymä
 
